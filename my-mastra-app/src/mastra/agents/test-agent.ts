@@ -1,12 +1,12 @@
 import { openai } from '@ai-sdk/openai'
 import { Agent } from '@mastra/core/agent'
 import { Memory } from '@mastra/memory'
-import { getDecisionInfoTool } from '../../tools/get-decision-info-tool'
-import { enumerateCollectionsTool } from '../../tools/enumerate-collections-tool'
+import { getDecisionInfoTool } from '../tools/decision-info-tool'
+import { enumerateCollectionsTool } from '../tools/enumerate-collections-tool'
 import { PostgresStore, PgVector } from '@mastra/pg'
 import { MastraStorage, MastraVector } from '@mastra/core'
 import { RuntimeContext } from '@mastra/core/runtime-context'
-import { ChatAgentRunTimeContext } from '../runtime-context'
+import { ChatAgentRunTimeContext } from './runtime-context'
 
 const MODEL: string = "o3"
 
@@ -18,6 +18,7 @@ const COMPOSE_DECISION_GLOBAL_CONTEXT = async (decisionId: string): Promise<stri
     `
   }
 
+// POSTGRES
 // POSTGRES
 const postgresStore: MastraStorage = new PostgresStore({
   connectionString: process.env.POSTGRES_MASTRA_URL!,
@@ -33,13 +34,13 @@ export const testAgent: Agent = new Agent({
   name: 'Agent Name',
   instructions: async ({ runtimeContext }: { runtimeContext: RuntimeContext<ChatAgentRunTimeContext> }) => {
     return `
-    ${await COMPOSE_DECISION_GLOBAL_CONTEXT(runtimeContext.get('decisionId'))}
+    ${await COMPOSE_DECISION_GLOBAL_CONTEXT('abc-123')}
     `
   },
   model: openai(MODEL),
   tools: {
-    [ChatAgentTool.ReadDecisionInfo]: getDecisionInfoTool,
-    [ChatAgentTool.ListingCollections]: enumerateCollectionsTool,
+    getDecisionInfoTool,
+    enumerateCollectionsTool,
   },
   workflows: { },
   memory: new Memory({
