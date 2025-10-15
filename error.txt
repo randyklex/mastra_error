@@ -1,0 +1,20 @@
+Error creating stream [Error [AI_APICallError]: Item 'fc_02c22c04804fac230068efd8d4eb788197b70a2120237b4f58' of type 'function_call' was provided without its required 'reasoning' item: 'rs_02c22c04804fac230068efd8d2c694819782c53ba639218e72'.] {
+  cause: undefined,
+  url: 'https://api.openai.com/v1/responses',
+  requestBodyValues: [Object],
+  statusCode: 400,
+  responseHeaders: [Object],
+  responseBody: '{\n' +
+    '  "error": {\n' +
+    `    "message": "Item 'fc_02c22c04804fac230068efd8d4eb788197b70a2120237b4f58' of type 'function_call' was provided without its required 'reasoning' item: 'rs_02c22c04804fac230068efd8d2c694819782c53ba639218e72'.",\n` +
+    '    "type": "invalid_request_error",\n' +
+    '    "param": "input",\n' +
+    '    "code": null\n' +
+    '  }\n' +
+    '}',
+  isRetryable: false,
+  data: [Object]
+}
+
+
+examine "client-message-parts.json"

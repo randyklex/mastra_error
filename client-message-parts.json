@@ -1,0 +1,176 @@
+These are the message parts as the agent is generating them and sending to the client.
+With these message parts an error is generated.
+Note: these are different than the message parts that get loaded from the database.
+
+{
+    parts: [
+      {
+        type: "text",
+        text: "Who are the stakeholders in this decision room?",
+      },
+    ],
+    id: "W8eon3xfkLqudoQq",
+    role: "user",
+}
+  
+{
+    id: "a9009f88-51f4-4382-83bd-7d2cbc40a05c",
+    role: "assistant",
+    parts: [
+      {
+        type: "step-start",
+      },
+      {
+        type: "reasoning",
+        text: "",
+        providerMetadata: {
+          openai: {
+            itemId: "rs_0db17d6f8984a0e30068efd8ccdd9c8190bc875aece972ddb2",
+            reasoningEncryptedContent: null,
+          },
+        },
+        state: "done",
+      },
+      {
+        type: "tool-reading-decision-info",
+        toolCallId: "call_ayb407DwcWHqTe2pJrFvtdwo",
+        state: "output-available",
+        input: {
+          decisionId: "tmyucnSddr0U971H",
+        },
+        output: {
+          orgId: "org_2zF9Rc6954kYeOGuddujWatBnBc",
+          decisionId: "tmyucnSddr0U971H",
+          title: "Testing Mastra Agent",
+          description: "No description",
+          stakeholders: [
+            "Randy Lynn",
+            "Luke Gurgel",
+            "Ryan Rudd",
+          ],
+          priority: "Medium",
+          createdBy: "Randy Lynn",
+          createdAt: "2025-10-10T19:26:43.646Z",
+          deadline: "2025-10-11T04:00:00.000Z",
+          currentStage: "No current stage set",
+          availableStages: [
+            "Qualification  (Order: 0)",
+            "Planning  (Order: 1)",
+            "Proposal Development (Order: 2)",
+            "In Review (Order: 3)",
+            "Submitted Awaiting Approval (Order: 4)",
+            "Negotiation (Order: 5)",
+            "Closed - Won (Order: 6)",
+            "Closed - Lost (Order: 7)",
+            "No Go (Order: 8)",
+          ],
+          type: "RFP Response (Connected Nation) ",
+          typeConfiguration: "{\"defaultDescription\":\"Please help me respond to this RFP.\"}",
+        },
+        callProviderMetadata: {
+          openai: {
+            itemId: "fc_0db17d6f8984a0e30068efd8ceefe88190bf3e6643e76766a6",
+          },
+        },
+      },
+      {
+        type: "step-start",
+      },
+      {
+        type: "reasoning",
+        text: "",
+        providerMetadata: {
+          openai: {
+            itemId: "rs_02c22c04804fac230068efd8d2c694819782c53ba639218e72",
+            reasoningEncryptedContent: null,
+          },
+        },
+        state: "done",
+      },
+      {
+        type: "tool-updateWorkingMemory",
+        toolCallId: "call_ud4aXwek7dzkav77kMmE4JjR",
+        state: "output-available",
+        input: {
+          newMemory: "#User\n  - First Name: Randy\n  - Last Name: Lynn",
+          searchString: null,
+          updateReason: "append-new-memory",
+        },
+        output: {
+          error: true,
+          message: "Tool validation failed for updateWorkingMemory. Please fix the following errors and try again:\n- searchString: Expected string, received null\n\nProvided arguments: {\n  \"newMemory\": \"#User\\n  - First Name: Randy\\n  - Last Name: Lynn\",\n  \"searchString\": null,\n  \"updateReason\": \"append-new-memory\"\n}",
+          validationErrors: {
+            _errors: [
+            ],
+            searchString: {
+              _errors: [
+                "Expected string, received null",
+              ],
+            },
+          },
+        },
+        callProviderMetadata: {
+          openai: {
+            itemId: "fc_02c22c04804fac230068efd8d4eb788197b70a2120237b4f58",
+          },
+        },
+      },
+      {
+        type: "step-start",
+      },
+      {
+        type: "reasoning",
+        text: "",
+        providerMetadata: {
+          openai: {
+            itemId: "rs_0cb55600ef2ef6890068efd8d749fc81968971b6cce5fc8153",
+            reasoningEncryptedContent: null,
+          },
+        },
+        state: "done",
+      },
+      {
+        type: "tool-updateWorkingMemory",
+        toolCallId: "call_FerncsAxdodMMt1lu23bRIIs",
+        state: "output-available",
+        input: {
+          newMemory: "#User\n  - First Name: Randy\n  - Last Name: Lynn\n",
+          searchString: "Randy Lynn",
+          updateReason: "append-new-memory",
+        },
+        output: {
+          success: true,
+          reason: "started new working memory",
+        },
+        callProviderMetadata: {
+          openai: {
+            itemId: "fc_0cb55600ef2ef6890068efd8d923188196a15ad7b2e253195b",
+          },
+        },
+      },
+      {
+        type: "step-start",
+      },
+      {
+        type: "text",
+        text: "The stakeholders (people who currently have access) in this Decision Room are:\n\n• Randy Lynn  \n• Luke Gurgel  \n• Ryan Rudd",
+        providerMetadata: {
+          openai: {
+            itemId: "msg_08f2ed1c379cf1d10068efd8dd0b9081949f9885edd5035195",
+          },
+        },
+        state: "done",
+      },
+    ],
+  }
+  
+  {
+    parts: [
+      {
+        type: "text",
+        text: "Are there any decision notes?",
+      },
+    ],
+    id: "XJmuQsQHp2sA4lbq",
+    role: "user",
+  }
